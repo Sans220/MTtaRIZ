@@ -3,5 +3,6 @@ class Lab1 {
         System.out.println("It works");
         System.out.println("Second line");
         System.out.println("Second line X2");
+        System.out.println("Second line X3");
     }
 }
