@@ -21,12 +21,12 @@ public static void main(String[] args) {
             int result = field.checkWin();
 
             if (result == 1) {
-                System.out.println("Переміг гравець " + p1.getSymbol() + "!");
+                System.out.println("Переміг гравець " + p1.getSymbol() +"!");
                 break;
             }
 
             if (result == 2) {
-                System.out.println("Переміг гравець " + p2.getSymbol() + "!");
+                System.out.println("Переміг гравець " + p2.getSymbol() +"!");
                 break;
             }
 
