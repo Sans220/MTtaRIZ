@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Tic-Tac-Toe Board</title>
+<style>
+  table { border-collapse: collapse; margin: 20px 0; }
+  td { border: 2px solid black; width: 50px; height: 50px; text-align: center; font-size: 2rem; }
+</style>
+</head>
+<body>
+<h1>Tic-Tac-Toe Game Board</h1>
+<table>
+  <tbody>
+    <tr th:each="row : ${board}">
+      <td th:each="cell : ${row}" th:text="${cell}"></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
