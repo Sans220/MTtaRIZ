@@ -1,33 +1,31 @@
 import java.sql.*;
 
 public class Db {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/myGame?useSSL=false";
+    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/?user=root";
     private static final String USER = "root";
-    private static final String PASSWORD = "xxx";
+    private static final String PASSWORD = "root";
 
     public Connection connect() throws SQLException {
         return DriverManager.getConnection(DB_URL, USER, PASSWORD);
     }
 
     // Проверка — существует ли пользователь в БД
-    public boolean isUserExists(String username) {
+    public boolean isUserExists(String username, String password) {
+    String sql = "SELECT COUNT(*) FROM mygame.users WHERE username = ? AND password = ?";
+    try (Connection con = connect();
+         PreparedStatement stmt = con.prepareStatement(sql)) {
 
-        String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
+        stmt.setString(1, username);
+        stmt.setString(2, password);
 
-        try (Connection con = connect();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
-
-            stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
-            }
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1) > 0;
         }
-        catch (Exception e) {
-            System.out.println("DB error: " + e.getMessage());
-        }
-
-        return false;
+    }
+    catch (Exception e) {
+        System.out.println("Database error: " + e.getMessage());
+    }
+    return false;
     }
 }

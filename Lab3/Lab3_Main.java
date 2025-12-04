@@ -1,12 +1,16 @@
 public class Lab3_Main {
-public static void main(String[] args) {
+    public static void main(String[] args) {
+
+        Db db = new Db(); // інтегруємо БД
+
         Lab3_GameField field = new Lab3_GameField();
 
         Lab3_Player p1 = new Lab3_Player('X');
         Lab3_Player p2 = new Lab3_Player('O');
 
-        p1.inputInfo();
-        p2.inputInfo();
+        // --- ЛОГІНІЗАЦІЯ ---
+        while (!p1.inputInfo(db)) {}
+        while (!p2.inputInfo(db)) {}
 
         field.printField();
 
@@ -21,12 +25,12 @@ public static void main(String[] args) {
             int result = field.checkWin();
 
             if (result == 1) {
-                System.out.println("Переміг гравець " + p1.getSymbol() + "!");
+                System.out.println("Переміг гравець " + p1.getUsername() + " (" + p1.getSymbol() + ")");
                 break;
             }
 
             if (result == 2) {
-                System.out.println("Переміг гравець " + p2.getSymbol() + "!");
+                System.out.println("Переміг гравець " + p2.getUsername() + " (" + p2.getSymbol() + ")");
                 break;
             }
 
