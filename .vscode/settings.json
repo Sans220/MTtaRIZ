@@ -2,9 +2,12 @@
     "java.project.sourcePaths": [
         "Lab1",
         "Lab2",
-        "Lab3"
+        "Lab3",
+        "Lab5",
+        "Lab6"
     ],
     "java.project.referencedLibraries": [
-        "Lab3\\mysql-connector-j-9.5.0.jar"
+        "Lab5\\libs\\spring-web-7.0.1.jar",
+        "c:\\Users\\Admin\\OneDrive\\Рабочий стол\\универ\\MTtaRIZ\\Lab3\\mysql-connector-j-9.5.0.jar"
     ]
 }
