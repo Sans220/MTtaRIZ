@@ -9,5 +9,6 @@
     "java.project.referencedLibraries": [
         "Lab5\\libs\\spring-web-7.0.1.jar",
         "c:\\Users\\Admin\\OneDrive\\Рабочий стол\\универ\\MTtaRIZ\\Lab3\\mysql-connector-j-9.5.0.jar"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
